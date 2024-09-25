@@ -1,0 +1,14 @@
+# ./.gitignore
+
+# Node modules
+client/node_modules/
+server/node_modules/
+
+# Logs
+*.log
+
+# Miscellaneous
+.DS_Store
+
+# OS generated files
+Thumbs.db
