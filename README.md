@@ -91,34 +91,38 @@ Ensure you have the following installed on your machine:
 
 ### Usage
 - Homepage: (`http://localhost:3000`): Displays a list of recipes fetched from MongoDB.
-- Specific Recipe Details: (`http://localhost:3000/recipe/:id`): Shows a specific recipe by is within the MongoDB cluster.
-- **IF** the database is empty, sample data can be added to the MongoDB Cluster manually:
+- Specific Recipe Details: (`http://localhost:3000/recipe/:id`): Shows a specific recipe by is within the MongoDB database.
+- Add Recipe: (`http://localhost:3000/add-recipe`): Allows the user to add a recipe to the database.
+- Edit Recipe: (`http://localhost:3000/edit-recipe/<id>`): Allows the user to edit a specifc recipe in the database by id.
 
-    1. Navigate to `clusters` on MongoDB Atlas.
-    2. Select the cluster used in this Application.
-    3. Navigate to `collections`.
-    4. Find the recipes database.
-    5. Select `Insert Document`.
-    6. Select `{}` from the `VIEW` options.
-    7. Replace the text that's already there with a sample in this exact format:
-        
-        {
-        "name": "<name-of-food>",
-        "ingredients": ["<ingredent1>", "<ingredient2>", "<ingredientx>", ...], (Can add ingredients as needed)
-        "instructions": "<cooking-instructions>",
-        "createdAt": "<YYYY>-<MM>-<DD>T<HH>:<MM>:<SS>Z",
-        "updatedAt": "<YYYY>-<MM>-<DD>T<HH>:<MM>:<SS>Z"
-        }
+- **To view all recipes within the database:**
+    1. With the application running, enter `http://localhost:3000` in your browsers search bar.
+    2. All recipes in the database should now be shown.
 
-    8. Select `Insert`.
+- **To view a specific recipe within the database:**
+    1. Retrieve the id of the recipe you would like to view from MongoDB.
+    2. With the application running, enter `http://localhost:3000/recipe/<id>` in your browsers search bar. Replace <id> in the URL with the id retrieved from the database.
+    3. The specific recipe requested should be shown.
 
-    The sample data should be inserted and should be viewable from the Application.
+- **To add a recipe to the database:**
+    1. With the application running, enter `http://localhost:3000/add-recipe` in your browsers search bar.
+    2. Add a recipe name, add ingredients (separated by commas), and add the cooking instructions.
+    3. Click `Add Recipe`, your recipe should now be added.
+
+- **To edit a recipe to the database:**
+    1. Retrieve the id of the recipe you would like to view from MongoDB.
+    2. With the application running, enter `http://localhost:3000/edit-recipe/<id>` in your browsers search bar. Replace <id> in the URL with the id retrieved from the database.
+    3. Edit recipe name, edit ingredients (everythin should still be seperated by commas), or edit the cooking instructions.
+    4. Click `Update Recipe`, your recipe should now be updated with your edits.
 
 ### Features
-- Right now, the only feature is to retrieve recipes that are already within the MongoDB cluster.
+- Retrieve and view recipes in the MongoDB database.
+- Add new recipes to the database.
+- Edit existing recipes in the database.
 
 ### Future Enhancements
-- Implement feature to add new recipes directly within the app.
+- Implement navigation buttons to avoid typing everything out in the browser.
+- Link recipes directly to the recipe list to avoid retrieving the ID and make viewing/editing easier.
 - Implement search feature 
 - Implement favorite recipes feature.
 
