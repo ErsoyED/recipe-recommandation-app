@@ -22,7 +22,7 @@ Ensure you have the following installed on your machine:
 1. **Clone the Repository:**
 
     1. Open a terminal
-    2. Navigate to where you want to clone the repository.
+    2. Navigate to where you want to clone the repository and enter the following commands in the terminal:
 
         1. `git clone https://github.com/ErsoyED/recipe-recommendation-app.git`
         2. `cd recipe-recommendation-app`
@@ -32,42 +32,42 @@ Ensure you have the following installed on your machine:
     #### Server-side:
     Navigate to the `server` folder and install the dependencies:
 
-        Open a new terminal within the project folder:
+        Open a new terminal within the project folder and enter the following commands in the terminal:
             
-            1. `cd server`
-            2. `npm install`
+            1. cd server
+            2. npm install
         
-        This will now be your server terminal.
+    **This will now be your server terminal.**
 
     #### Client-side:
     Navigate to the `client` folder and install the dependencies:
 
-        Open a new terminal within the project folder:
+        Open a new terminal within the project folder and enter the following commands in the terminal:
 
-            1. `cd client`
-            2. `npm install`
+            1. cd client
+            2. npm install
 
-        This will now be your client terminal.
+    **This will now be your client terminal.**
 
 3. **Set up MongdoDB**
 
     This project uses MongoDB atlas. There is a free tier.
 
     1. In the server folder, open the .env file.
-    2. Update MONGO_URI, you should see that it is set to mongodb+srv://<username>:<password>@c<cluster>.rrhqn.mongodb.net/?
-        1. Change <username> to your MongoDB username.
-        2. Change <password> to your MongoDB password.
-        3. Change <cluster> to the name of the cluster you want to use.
+    2. Update MONGO_URI, you should see that it is set to `mongodb+srv://username:password@cluster.rrhqn.mongodb.net/?`
+        1. Change `username` to your MongoDB username.
+        2. Change `password` to your MongoDB password.
+        3. Change `cluster` to the name of the cluster you want to use.
 
 4. **Start the Application**
 
     #### Server-side:
         
-    Open the server terminal:
+    Open the server terminal and enter the following command in the terminal:
 
-        `npm start`
+        npm start
 
-        The console should output that the server is running on port 5001 and that MongoDB is connected.
+    **The console should output that the server is running on port 5001 and that MongoDB is connected.**
 
     - If running into port issues, change the port from 5001 to something else in: 
         - client/src/components/RecipeDetail.js
@@ -81,11 +81,11 @@ Ensure you have the following installed on your machine:
 
     #### Client-side:
         
-        Open the client terminal:
+        Open the client terminal and enter the following command in the terminal:
 
-            `npm start`
+            npm start
 
-    The application should now be running.
+    **The application should now be running.**
 
 ## Using the Application/Application Features
 
@@ -97,34 +97,44 @@ Ensure you have the following installed on your machine:
 
 - **To view all recipes within the database:**
     1. With the application running, enter `http://localhost:3000` in your browsers search bar.
-    2. All recipes in the database should now be shown.
+    **The recipe list with all recipes in the database should now be shown.**
 
 - **To view a specific recipe within the database:**
-    1. Retrieve the id of the recipe you would like to view from MongoDB.
-    2. With the application running, enter `http://localhost:3000/recipe/<id>` in your browsers search bar. Replace <id> in the URL with the id retrieved from the database.
-    3. The specific recipe requested should be shown.
+    1. With the application running, enter `http://localhost:3000` in your browsers search bar.
+    2. Click on the recipe you wish to see from the homescreen.
+    **The recipe details page should now be shown with the recipe you wish to see.**
 
 - **To add a recipe to the database:**
-    1. With the application running, enter `http://localhost:3000/add-recipe` in your browsers search bar.
-    2. Add a recipe name, add ingredients (separated by commas), and add the cooking instructions.
-    3. Click `Add Recipe`, your recipe should now be added.
+    1. With the application running, enter `http://localhost:3000` in your browsers search bar.
+    2. Click the `Add Recipe` button from the homescreen.
+    3. Add a recipe name, add ingredients (separated by commas), and add the cooking instructions.
+    4. Click the `Add Recipe` button. 
+    **Your recipe should now be added to the database.**
 
-- **To edit a recipe to the database:**
-    1. Retrieve the id of the recipe you would like to view from MongoDB.
-    2. With the application running, enter `http://localhost:3000/edit-recipe/<id>` in your browsers search bar. Replace <id> in the URL with the id retrieved from the database.
-    3. Edit recipe name, edit ingredients (everythin should still be seperated by commas), or edit the cooking instructions.
-    4. Click `Update Recipe`, your recipe should now be updated with your edits.
+- **To edit an existing recipe in the database:**
+    1. With the application running, enter `http://localhost:3000` in your browsers search bar.
+    2. Click on the recipe you wish to edit from the homescreen.
+    3. Click the `Edit Recipe` button on the recipe details page.
+    4. Update the name, ingredients (still seperated by commas), and/or instructions of the recipe.
+    5. Click the `Update Recipe` button.
+    **Your updates should now be reflected on the recipe details page.**
+
+- **To delete a recipe from the database:**
+    1. With the application running, enter `http://localhost:3000` in your browsers search bar.
+    2. Click on the recipe you wish to delete.
+    3. Click the `Delete Recipe` button. 
+    **Your recipe should now be deleted from the database.**    
 
 ### Features
 - Retrieve and view recipes in the MongoDB database.
 - Add new recipes to the database.
 - Edit existing recipes in the database.
+- Delete recipes from the database.
 
 ### Future Enhancements
-- Implement navigation buttons to avoid typing everything out in the browser.
-- Link recipes directly to the recipe list to avoid retrieving the ID and make viewing/editing easier.
-- Implement search feature 
-- Implement favorite recipes feature.
+- UI improvements.
+- Search feature.
+- Favorite recipes feature.
 
 ### Technologies Used
 - #### Frontend:

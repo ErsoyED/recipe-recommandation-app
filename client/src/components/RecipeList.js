@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function RecipeList() {
   const [recipes, setRecipes] = useState([]); // storing fetched recipes
@@ -11,7 +12,6 @@ function RecipeList() {
     const fetchRecipes = async () => { // async function to fetch the recipes from the backend API
       try {
         const response = await axios.get('http://localhost:5001/api/recipes'); // GET request to the backend API to fetch recipes
-
         setRecipes(response.data); // update the recipes state with the fetched recipes
       } // try
       catch (error) { // error handling
@@ -33,9 +33,9 @@ function RecipeList() {
     <ul>
       {recipes.map((recipe) => (
         <li key={recipe._id}>
-          <h2>{recipe.name}</h2>
-          <p>Instructions: {recipe.instructions}</p>
-          <p>Ingredients: {recipe.ingredients.join(', ')}</p>
+          <Link to={`/recipe/${recipe._id}`}> {/* allowing user to click on recipes from the list instead of trying to find the id */}
+            <h2>{recipe.name}</h2> {/* only shows recipe name now instead of everything */}
+          </Link>
         </li>
       ))}
     </ul>
