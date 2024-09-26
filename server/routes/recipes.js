@@ -29,4 +29,52 @@ router.get('/recipes/:id', async (req, res) => {
   } // catch
 }); // router
 
+// POST route to add a new recipe
+router.post('/recipes', async (req, res) => {
+    const { name, ingredients, instructions } = req.body;
+  
+    // making sure there are no empty fields
+    if (!name || !ingredients || !instructions) {
+      return res.status(400).json({ message: "All fields are required" });
+    } // if
+  
+    // new recipe object
+    const newRecipe = new Recipe({
+      name,
+      ingredients,
+      instructions,
+    }); // const newRecipe
+  
+    try {
+      const savedRecipe = await newRecipe.save(); // add the new recipe to the database
+      res.status(201).json(savedRecipe);
+    } // try
+    catch (error) {
+      res.status(500).json({ message: error.message });
+    } // catch
+  }); // router.post
+
+// PUT route to edit a recipe by ID
+router.put('/recipes/:id', async (req, res) => {
+    const { name, ingredients, instructions } = req.body;
+  
+    try {
+      const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, { // finding recipe and updating with new data
+        name,
+        ingredients,
+        instructions,
+      }, // const updatedRecipe
+      { new: true }); // returns updated document
+  
+      if (!updatedRecipe) { // if the recipe doesn't exist
+        return res.status(404).json({ message: 'Recipe not found' });
+      } // if
+  
+      res.json(updatedRecipe); // updated recipe as JSON
+    } // try 
+    catch (error) { // error handling
+      res.status(500).json({ message: error.message });
+    } // catch
+  }); // router.post
+
 module.exports = router;
