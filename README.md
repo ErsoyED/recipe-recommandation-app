@@ -24,8 +24,8 @@ Ensure you have the following installed on your machine:
     1. Open a terminal
     2. Navigate to where you want to clone the repository.
 
-        1. ```git clone https://github.com/ErsoyED/recipe-recommendation-app.git
-        2. ```cd recipe-recommendation-app
+        1. `git clone https://github.com/ErsoyED/recipe-recommendation-app.git`
+        2. `cd recipe-recommendation-app`
 
 2. **Install Dependencies for Both Client and Server:**
 
@@ -34,8 +34,8 @@ Ensure you have the following installed on your machine:
 
         Open a new terminal within the project folder:
             
-            1. ```cd server
-            2. ```npm install
+            1. `cd server`
+            2. `npm install`
         
         This will now be your server terminal.
 
@@ -44,8 +44,8 @@ Ensure you have the following installed on your machine:
 
         Open a new terminal within the project folder:
 
-            1. ```cd client
-            2. ```npm install
+            1. `cd client`
+            2. `npm install`
 
         This will now be your client terminal.
 
@@ -65,7 +65,7 @@ Ensure you have the following installed on your machine:
         
     Open the server terminal:
 
-        ```npm start
+        `npm start`
 
         The console should output that the server is running on port 5001 and that MongoDB is connected.
 
@@ -83,7 +83,7 @@ Ensure you have the following installed on your machine:
         
         Open the client terminal:
 
-            ```npm start
+            `npm start`
 
     The application should now be running.
 
