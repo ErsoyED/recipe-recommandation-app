@@ -27,19 +27,23 @@ function RecipeList() {
   // if there are no recipes
   if (recipes.length === 0) {
     return <p>No recipes found</p>;
-  } // if
+  } // if  
 
   return (
-    <ul>
-      {recipes.map((recipe) => (
-        <li key={recipe._id}>
-          <Link to={`/recipe/${recipe._id}`}> {/* allowing user to click on recipes from the list instead of trying to find the id */}
-            <h2>{recipe.name}</h2> {/* only shows recipe name now instead of everything */}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  ); // return 
+    <div>
+      <h2>My Recipes</h2>
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe._id}>
+            {/* recipe name */}
+            <h3>
+              <Link to={`/recipe/${recipe._id}`}>{recipe.name}</Link>
+            </h3>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 } // RecipeList
 
 export default RecipeList;

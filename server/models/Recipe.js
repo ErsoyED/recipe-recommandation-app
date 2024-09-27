@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 
 // recipe schema
 const recipeSchema = new mongoose.Schema({
+  image: {
+    type: String,  // recipe image url
+    required: false,
+  },
   name: { // recipe name
     type: String,
     required: true,

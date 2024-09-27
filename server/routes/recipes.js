@@ -31,15 +31,16 @@ router.get('/recipes/:id', async (req, res) => {
 
 // POST route to add a new recipe
 router.post('/recipes', async (req, res) => {
-    const { name, ingredients, instructions } = req.body;
+    const { image, name, ingredients, instructions } = req.body;
   
     // making sure there are no empty fields
     if (!name || !ingredients || !instructions) {
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "Recipe name, ingredients, and instructions are required." });
     } // if
   
     // new recipe object
     const newRecipe = new Recipe({
+      image,
       name,
       ingredients,
       instructions,
@@ -56,10 +57,11 @@ router.post('/recipes', async (req, res) => {
 
 // PUT route to edit a recipe by ID
 router.put('/recipes/:id', async (req, res) => {
-    const { name, ingredients, instructions } = req.body;
+    const { image, name, ingredients, instructions } = req.body;
   
     try {
       const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, { // finding recipe and updating with new data
+        image,
         name,
         ingredients,
         instructions,

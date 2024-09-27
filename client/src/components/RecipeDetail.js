@@ -6,8 +6,9 @@ import axios from 'axios';
 
 // showing details of recipe
 const RecipeDetail = () => {
-  const { id } = useParams(); // retrieve id 
+  const { id } = useParams(); // retrieve id from URL
   const [recipe, setRecipe] = useState(null); // storing fetched recipe
+  const [spoonacularData, setSpoonacularData] = useState(null); // store fetched data from Spoonacular API
   const navigate = useNavigate();
 
   // useEffect to fetch recipe data when the component mounts or when the id changes
@@ -39,26 +40,36 @@ const RecipeDetail = () => {
   }; // const handleDelete
 
   if (!recipe) {
-    return <p>No recipe matches this ID. Please check the ID and try again.</p>; // message if there is no recipe matching that id
+    return <p>Loading...</p>; // default loading message to look nice
   } // if
 
   return (
     <div>
+      {/* recipe image, only show if one was added */}
+      {recipe.image && (
+        <img src={recipe.image} alt={recipe.name} style={{ maxWidth: '300px' }} />
+      )} {/* recipe image */}
+      {/* recipe name */}
       <h1>{recipe.name}</h1>
-      <p>{recipe.instructions}</p>
+      {/* recipe ingredients */}
+      <h3><strong>Ingredients:</strong></h3>
       <ul>
         {recipe.ingredients.map((ingredient, index) => (
           <li key={index}>{ingredient}</li>
-        ))}
+        ))} {/* recipe ingredients */}
       </ul>
+      {/* recipe instructions, rendering HTML pulled in from Spoonacular if necessary */}
+      <h3><strong>Instructions:</strong></h3>
+      <div dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
+      <p></p>
 
-      {/* Add Edit Recipe button */}
+      {/* Edit Recipe button */}
       <Link to={`/edit-recipe/${id}`}>
         <button>Edit Recipe</button>
       </Link>
 
-      {/* Add a Delete Button */}
-      <button onClick={recipeDelete}>Delete Recipe</button>
+      {/* Delete Button */}
+      <button onClick={recipeDelete}>Delete from My Recipes</button>
     </div>
   ); // return
 }; // RecipeDetail

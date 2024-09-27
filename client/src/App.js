@@ -6,6 +6,7 @@ import RecipeList from './components/RecipeList';
 import RecipeDetail from './components/RecipeDetail';
 import AddRecipeForm from './components/AddRecipeForm';
 import EditRecipeForm from './components/EditRecipeForm';
+import RecipeSearch from './components/RecipeSearch';
 
 
 // main component to hold the structure of the app
@@ -22,7 +23,10 @@ function App() {
             <button>Home</button> {/* home button */}
           </Link>
           <Link to="/add-recipe">
-            <button>Add Recipe</button> {/* add recipe button */}
+            <button>Add Your Own Recipe</button> {/* add your own recipe button */}
+          </Link>
+          <Link to="/search">
+            <button>Search for a Recipe with Spoonacular</button> {/* recipe search button*/}
           </Link>
         </nav>
 
@@ -32,6 +36,7 @@ function App() {
           <Route path="/recipe/:id" element={<RecipeDetail />} /> {/* recipe detail route */}
           <Route path="/add-recipe" element={<AddRecipeForm />} /> {/* add recipe route */}
           <Route path="/edit-recipe/:id" element={<EditRecipeForm />} /> {/* edit recipe route */}
+          <Route path="/search" element={<RecipeSearch />} /> {/* recipe search route */}
         </Routes>
       </div>
     </Router>
